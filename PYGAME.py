@@ -157,11 +157,32 @@ def main():
                 sys.exit()
             if event.type == pygame.KEYDOWN:
                 glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT) 
-                print("Hey, you pressed the key, '0'!")
                 
                 if event.key == K_0:
                     cubo1.do_movement(0)
-                    print(cubo1.status)
+                if event.key == K_1:
+                    cubo1.do_movement(1)
+                if event.key == K_2:
+                    cubo1.do_movement(2)
+                if event.key == K_3:
+                    cubo1.do_movement(3)
+                if event.key == K_4:
+                    cubo1.do_movement(4)
+                if event.key == K_5:
+                    cubo1.do_movement(5)
+                if event.key == K_6:
+                    cubo1.do_movement(6)
+                if event.key == K_7:
+                    cubo1.do_movement(7)
+                if event.key == K_8:
+                    cubo1.do_movement(8)
+                if event.key == K_9:
+                    cubo1.do_movement(9)
+                if event.key == K_o:
+                    cubo1.do_movement(10)
+                if event.key == K_p:
+                    cubo1.do_movement(11)
+
                     
                 elif event.key == K_a:
                     glRotatef(10, 0, 5, 1)
