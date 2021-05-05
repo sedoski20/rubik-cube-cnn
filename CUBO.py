@@ -46,17 +46,25 @@ class cube:
             value = 0;
             for y in range (self.rows):
                 for z in range (self.columns):
-                    self.status[x][y][z] = 100*x + 10*y + z
+                    # self.status[x][y][z] = 100*x + 10*y + z
+                    self.status[x][y][z] = x
                     value += 1
                     
     def sort_faces(self):
         self.organize_faces()
-        for i in range(1000):
+        for i in range(100):
             sort = random.randint(0, 11)
             self.do_movement(sort)
-        
-        
-                    
+            
+    def get_score(self):
+        score = 0
+        for x in range (self.faces):
+            for y in range (self.rows):
+                for z in range (self.columns):
+                    if(self.status[x][y][z] == x):
+                        score += 1
+        return score
+                        
     def do_movement(self, movement):
         face = int((movement)/2)
         
@@ -65,7 +73,7 @@ class cube:
         if(movement%2 == 0):
             clockwise = True 
 
-        print("\nExecuting movement: " + str(movements[movement]) + " face -> " + str(face) + " cw -> " + str(clockwise) + " ..\n")
+        # print("\nExecuting movement: " + str(movements[movement]) + " face -> " + str(face) + " cw -> " + str(clockwise) + " ..\n")
         self.face_flip(face, clockwise)
         
         right_edge = np.zeros((1,3), int)
@@ -226,7 +234,7 @@ class cube:
                 self.status[right_face][2] = bottom_edge
                 self.status[left_face][2] = top_edge
                 self.status[top_face][2] = right_edge
-                self.status[bottom_face][2] = left_edge
+                self.status[bottom_face][2] = left_edge  
                 
     def face_flip(self, face, clockwise):
         temporary_copy = np.zeros((self.rows,self.columns), int)
@@ -245,6 +253,3 @@ class cube:
                 
         self.status[face] = temporary_copy
                 
-
-cubo = cube()
-cubo.sort_faces()
