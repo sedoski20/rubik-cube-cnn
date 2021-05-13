@@ -236,6 +236,8 @@ class cube:
                 self.status[top_face][2] = right_edge
                 self.status[bottom_face][2] = left_edge  
                 
+        print("-------------- Current Score: " + str(self.get_score()))
+                
     def face_flip(self, face, clockwise):
         temporary_copy = np.zeros((self.rows,self.columns), int)
         
